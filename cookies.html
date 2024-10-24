@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+    <script>
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+        }
+
+        function getCookie(name) {
+            return document.cookie.split('; ')
+                .reduce((acc, cookie) => {
+                    const [key, value] = cookie.split('=');
+                    return key === name ? decodeURIComponent(value) : acc;
+                }, '');
+        }
+
+        function saveName() {
+            const name = document.getElementById('nameInput').value;
+            setCookie('username', name, 7); // Save username cookie for 7 days
+            alert(`Name saved: ${name}`);
+        }
+
+        function showName() {
+            const username = getCookie('username');
+            alert(`Saved name: ${username}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Cookie Example</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="saveName()">Save Name</button>
+    <button onclick="showName()">Show Name</button>
+</body>
+</html>

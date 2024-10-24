@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background-color: #f0f0f0;
+            color: #333;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            padding: 20px; /* Add padding to the body */
+            flex-direction: column; /* Stack items vertically */
+
+            background: hsla(186, 33%, 94%, 1);
+            background: linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EBF4F5", endColorstr="#B5C6E0", GradientType=1 );
+        }
+        #main {
+            display: flex;
+            align-items: center; /* Center items vertically within #main */
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px; /* Space below the title */
+        }
+        h2 {
+            color: #2980b9;
+            margin-bottom: 5px; /* Space below the points */
+        }
+        h3 {
+            color: #7e8182; /* Click power color */
+            margin-bottom: 20px; /* Margin for better spacing */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            margin: 10px 0; /* Vertical margin */
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+            color: #fff;
+        }
+        #clearButton {
+            color: red; /* Red text color for the clear button */
+            background: none; /* No background */
+            border: none; /* No border */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 18px; /* Slightly smaller font size */
+        }
+        #upgrades {
+            margin-left: 20px; /* Space between game and upgrades */
+            width: 300px; /* Fixed width for the upgrade box */
+            height: 400px; /* Fixed height for scrollable area */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+            position: relative; /* Relative positioning for proper layout */
+        }
+        .upgrade {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #2980b9;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .upgrade:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+        #backButton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #backButton:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" id="backButton">Back to Home</a>
+    
+    <div id="main">
+        <div>
+            <h1>Clicker Game</h1>
+            <h2 id="score">Points: 0</h2>
+            <h3 id="clickPower">Click Power: 1</h3> <!-- Click power display -->
+            <button id="clickButton">Click Me!</button>
+            <button id="clearButton">Clear Cookies</button>
+        </div>
+        
+        <div id="upgrades">
+            <h3>Upgrades</h3>
+            <!-- Tier 1 -->
+            <div class="upgrade">
+                <p>Tier 1 Upgrade: Increase Click Power (Cost: <span class="cost" id="cost1">10</span> points)</p>
+                <button id="upgradeButton1">Buy</button>
+            </div>
+            <!-- Tier 2 -->
+            <div class="upgrade">
+                <p>Tier 2 Upgrade: Double Click Power (Cost: <span class="cost" id="cost2">25</span> points)</p>
+                <button id="upgradeButton2">Buy</button>
+            </div>
+            <!-- Tier 3 -->
+            <div class="upgrade">
+                <p>Tier 3 Upgrade: Increase Points per Click (Cost: <span class="cost" id="cost3">50</span> points)</p>
+                <button id="upgradeButton3">Buy</button>
+            </div>
+            <!-- Tier 4 -->
+            <div class="upgrade">
+                <p>Tier 4 Upgrade: Triple Click Power (Cost: <span class="cost" id="cost4">100</span> points)</p>
+                <button id="upgradeButton4">Buy</button>
+            </div>
+            <!-- Tier 5 -->
+            <div class="upgrade">
+                <p>Tier 5 Upgrade: Quadruple Click Power (Cost: <span class="cost" id="cost5">200</span> points)</p>
+                <button id="upgradeButton5">Buy</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+        }
+
+        function getCookie(name) {
+            return document.cookie.split('; ')
+                .reduce((acc, cookie) => {
+                    const [key, value] = cookie.split('=');
+                    return key === name ? decodeURIComponent(value) : acc;
+                }, '');
+        }
+
+        function deleteCookie(name) {
+            setCookie(name, '', -1); // Set cookie to expire
+        }
+
+        let points = parseInt(getCookie('points')) || 0;
+        let pointsPerClick = parseInt(getCookie('pointsPerClick')) || 1; // Load click power from cookie
+        let upgradesBought;
+
+        // Try to parse upgradesBought cookie safely
+        try {
+            let upgradesBoughtCookie = getCookie('upgradesBought');
+            upgradesBought = upgradesBoughtCookie ? JSON.parse(upgradesBoughtCookie) : [0, 0, 0, 0, 0]; // Load upgrade counts or default
+        } catch (e) {
+            upgradesBought = [0, 0, 0, 0, 0]; // Reset if there's an error
+        }
+
+        // Ensure upgradesBought cookie is initialized if it doesn't exist
+        if (!getCookie('upgradesBought')) {
+            setCookie('upgradesBought', JSON.stringify(upgradesBought), 7);
+        }
+
+        const scoreElement = document.getElementById('score');
+        const clickPowerElement = document.getElementById('clickPower'); // Click power element
+        const clickButton = document.getElementById('clickButton');
+        const clearButton = document.getElementById('clearButton');
+
+        // Update UI with loaded values
+        scoreElement.innerText = `Points: ${points}`;
+        clickPowerElement.innerText = `Click Power: ${pointsPerClick}`; // Update click power UI
+
+        // Function to handle upgrades
+        function buyUpgrade(upgradeIndex, baseCost, multiplier) {
+            const costElement = document.getElementById(`cost${upgradeIndex + 1}`);
+            const cost = baseCost * Math.pow(multiplier, upgradesBought[upgradeIndex]); // Calculate cost based on how many have been bought
+
+            if (points >= cost) {
+                points -= cost;
+                pointsPerClick *= multiplier; // Increase click power
+                upgradesBought[upgradeIndex]++; // Increment upgrade count
+                scoreElement.innerText = `Points: ${points}`;
+                clickPowerElement.innerText = `Click Power: ${pointsPerClick}`; // Update click power
+                setCookie('points', points, 7); // Save points to cookie
+                setCookie('pointsPerClick', pointsPerClick, 7); // Save click power to cookie
+                setCookie('upgradesBought', JSON.stringify(upgradesBought), 7); // Save upgrades to cookie
+                costElement.innerText = (baseCost * Math.pow(multiplier, upgradesBought[upgradeIndex])).toFixed(0); // Update cost
+            } else {
+                alert("Not enough points!");
+            }
+        }
+
+        // Event listeners for click button and upgrade buttons
+        clickButton.addEventListener('click', () => {
+            points += pointsPerClick;
+            scoreElement.innerText = `Points: ${points}`;
+            setCookie('points', points, 7); // Save points to cookie
+        });
+
+        document.getElementById('upgradeButton1').addEventListener('click', () => buyUpgrade(0, 10, 2));
+        document.getElementById('upgradeButton2').addEventListener('click', () => buyUpgrade(1, 25, 2));
+        document.getElementById('upgradeButton3').addEventListener('click', () => buyUpgrade(2, 50, 1.5));
+        document.getElementById('upgradeButton4').addEventListener('click', () => buyUpgrade(3, 100, 3));
+        document.getElementById('upgradeButton5').addEventListener('click', () => buyUpgrade(4, 200, 4));
+
+        // Clear cookies button functionality
+        clearButton.addEventListener('click', () => {
+            deleteCookie('points');
+            deleteCookie('pointsPerClick');
+            deleteCookie('upgradesBought');
+            points = 0;
+            pointsPerClick = 1; // Reset click power to default
+            upgradesBought = [0, 0, 0, 0, 0]; // Reset upgrades
+            scoreElement.innerText = `Points: ${points}`;
+            clickPowerElement.innerText = `Click Power: ${pointsPerClick}`; // Reset UI
+            alert("Cookies cleared!"); // Alert to confirm clearing
+        });
+    </script>
+</body>
+</html>

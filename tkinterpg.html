@@ -1,55 +1,284 @@
-<!Doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
-	<link rel="stylesheet" href="styling/main.css">
+    <link rel="stylesheet" href="styling/main.css">
+    <script src="javascript/main.js"></script>
 
-	<a href="index.html">home</a>
-	||
-	<a href="pythonpg.html">python</a>
-	|
-	<a href="tkinterpg.html">tkinter</a>
-	|
-	<a href="pagpg.html">pyautogui</a>
-	|
-	<a href="aboutpg.html">about</a>
-	|
-	<a href="sourcecd.html">source code</a>
+    <title>Tkinter Docs</title>
 
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8; /* Light background for better contrast */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-	<hr>
+        .top-bar {
+            background-color: #2C3E50; /* Dark top bar */
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-	<title>Docs // Tkinter</title>
+        .top-bar-title {
+            color: white;
+            font-size: 1.5em;
+            margin-right: auto; /* Push the menu button to the right */
+            padding: 0 10px;
+        }
 
-	<h1><u>Ellis's Python Documentation // Tkinter</u></h1>
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 24px;
+        }
 
-	<hr>
+        .menu {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            background-color: #1a2530;
+            position: absolute;
+            top: 60px; /* Position below the header */
+            right: 0; /* Aligns to the right */
+            width: 200px; /* Width of the menu */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
 
+        .menu a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            text-align: left; /* Align text to the left */
+        }
+
+        .menu a:hover {
+            background-color: #16A085;
+        }
+
+        .container {
+            max-width: 800px; /* Set a max width for better readability */
+            margin: 30px auto; /* Center the container */
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2980B9; /* Header color */
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px; /* Space below the header */
+        }
+
+        h2 {
+            color: #16A085; /* Subheader color */
+            font-size: 2em;
+            margin-top: 30px; /* Space above each subheader */
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px; /* Space below paragraphs */
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+        }
+
+        pre {
+            background-color: #f8f9fa; /* Light background for code blocks */
+            border-left: 4px solid #2980B9; /* Blue left border */
+            padding: 10px;
+            overflow-x: auto; /* Add horizontal scroll for long code */
+        }
+
+        ul {
+            margin-left: 20px; /* Indent unordered lists */
+        }
+
+        a {
+            color: #2980B9; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Adjust header size for smaller screens */
+            }
+
+            h2 {
+                font-size: 1.5em; /* Adjust header size for smaller screens */
+            }
+        }
+    </style>
 </head>
+
 <body>
-	<h2><u>The Basics:</u></h2>
 
-	<h3>Making a window-</h3>
+    <div class="top-bar">
+        <span class="top-bar-title">>_</span>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
 
-	<p>
-		All you need for a window is 6 lines of code, All you need to do is:
-	</p>
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="pythonpg.html">Python</a>
+        <a href="tkinterpg.html">Tkinter</a>
+        <a href="pagpg.html">PyAutoGUI</a>
+        <a href="aboutpg.html">About</a>
+        <a href="sourcecd.html">Source Code</a>
+        <a href="games.html">Games</a>
+    </div>
 
-	<ol>
-		<li>Import the tkinter library</li>
-		<li>Import all of it</li>
-		<li>Declare the root variable (name it anything)</li>
-		<li>Optional: Customize things like the name of the window</li>
-		<li>Then use the mainloop function</li>
-	</ol>
+    <div class="container">
+        <h1>Tkinter Basic Tutorial</h1>
 
-	<p>
-		After that you should have something that looks a bit like this: 
-	</p>
+        <div class="container">
+            <h2>1. Introduction to Tkinter</h2>
+            <p>Tkinter is the standard GUI (Graphical User Interface) library for Python. It allows you to create desktop applications with ease. Tkinter is included with Python, so you don’t need to install it separately.</p>
+        </div>
 
-	<img src="images/guiexample2.png"> <img src="images/guiexample1.png">
+        <div class="container">
+            <h2>2. Setting Up Your Environment</h2>
+            <p>Make sure you have Python installed on your machine. Tkinter comes with Python installations on Windows and Mac, but for Linux, you may need to install it separately using:</p>
+            <pre><code>sudo apt-get install python3-tk</code></pre>
+        </div>
 
-</body
+        <div class="container">
+            <h2>3. Creating Your First Tkinter Window</h2>
+            <p>To create a basic Tkinter application, you need to import the <code>tkinter</code> module and create an instance of the <code>Tk</code> class.</p>
+            <pre><code>
+import tkinter as tk
+
+# Create the main window
+root = tk.Tk()
+root.title("My First Tkinter App")
+root.geometry("300x200")  # Width x Height
+
+# Start the main loop
+root.mainloop()
+            </code></pre>
+        </div>
+
+        <div class="container">
+            <h2>4. Adding Widgets</h2>
+            <p>Widgets are the elements you add to your application, like buttons, labels, text boxes, etc. Here’s how to add a label and a button to your window.</p>
+            <pre><code>
+import tkinter as tk
+
+def on_button_click():
+    label.config(text="Button Clicked!")
+
+# Create the main window
+root = tk.Tk()
+root.title("My First Tkinter App")
+root.geometry("300x200")
+
+# Create a label
+label = tk.Label(root, text="Hello, Tkinter!", font=("Arial", 14))
+label.pack(pady=10)  # Add some vertical padding
+
+# Create a button
+button = tk.Button(root, text="Click Me!", command=on_button_click)
+button.pack(pady=5)
+
+# Start the main loop
+root.mainloop()
+            </code></pre>
+        </div>
+
+        <div class="container">
+            <h2>5. Layout Management</h2>
+            <p>Tkinter provides three main methods to manage the layout of widgets: <code>pack</code>, <code>grid</code>, and <code>place</code>.</p>
+            <p>Example using <code>grid</code>:</p>
+            <pre><code>
+import tkinter as tk
+
+# Create the main window
+root = tk.Tk()
+root.title("Grid Example")
+
+# Create and place labels and entry widgets in a grid
+tk.Label(root, text="Name:").grid(row=0, column=0)
+name_entry = tk.Entry(root)
+name_entry.grid(row=0, column=1)
+
+tk.Label(root, text="Age:").grid(row=1, column=0)
+age_entry = tk.Entry(root)
+age_entry.grid(row=1, column=1)
+
+# Start the main loop
+root.mainloop()
+            </code></pre>
+        </div>
+
+        <div class="container">
+            <h2>6. Handling Events</h2>
+            <p>You can handle events such as button clicks or key presses using event bindings.</p>
+            <pre><code>
+import tkinter as tk
+
+def on_key_press(event):
+    print(f"You pressed: {event.char}")
+
+# Create the main window
+root = tk.Tk()
+root.title("Event Handling Example")
+
+# Bind the key press event to the on_key_press function
+root.bind("<Key>", on_key_press)
+
+# Start the main loop
+root.mainloop()
+            </code></pre>
+        </div>
+
+        <div class="container">
+            <h2>7. Final Thoughts</h2>
+            <p>This tutorial gives you a basic understanding of Tkinter. You can explore more advanced features such as:</p>
+            <ul>
+                <li>Menus</li>
+                <li>Dialogs</li>
+                <li>Canvas for drawing</li>
+                <li>Customizing widgets</li>
+            </ul>
+            <p>For more detailed information, you can refer to the <a href="https://docs.python.org/3/library/tkinter.html" target="_blank">official Tkinter documentation</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+
+</body>
+</html>

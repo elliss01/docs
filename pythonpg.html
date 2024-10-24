@@ -1,81 +1,238 @@
-<!Doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
-	<link rel="stylesheet" href="styling/main.css">
-	
-	<a href="index.html">home</a>
-	||
-	<a href="pythonpg.html">python</a>
-	|
-	<a href="tkinterpg.html">tkinter</a>
-	|
-	<a href="pagpg.html">pyautogui</a>
-	|
-	<a href="aboutpg.html">about</a>
-	|
-	<a href="sourcecd.html">source code</a>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styling/main.css">
+    <script src="javascript/main.js"></script>
 
-	
-	<hr>
+    <!-- Title -->
+    <title>Python Docs</title>
 
-	<title>Docs // Python</title>
+    <!-- Basic styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-	<h1><u>Ellis's Python Documentation // Python</u></h1>
+        h1, h2, h3 {
+            text-align: center;
+        }
 
-	<hr>
+        h1 {
+            font-size: 2.5em;
+            color: #2C3E50;
+        }
 
+        h2 {
+            font-size: 2em;
+            color: #16A085;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #2980B9;
+        }
+
+        .important {
+            color: #E74C3C;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px; /* Set a max width for better readability */
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Top bar styles */
+        .top-bar {
+            background-color: #2C3E50;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end; /* Aligns the hamburger menu to the right */
+            position: relative;
+        }
+
+                /* Top bar title styles */
+        .top-bar-title {
+            color: white; /* Text color */
+            font-size: 1.5em; /* Adjust font size as needed */
+            margin-right: auto; /* Push the menu button to the right */
+            padding: 0 10px; /* Add some padding for spacing */
+        }
+
+        /* Hamburger menu styles */
+        .menu {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            background-color: #1a2530;
+            position: absolute;
+            top: 50px; /* Position below the header */
+            right: 0; /* Aligns to the right */
+            width: 200px; /* Width of the menu */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .menu a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            text-align: left; /* Align text to the left */
+        }
+
+        .menu a:hover {
+            background-color: #16A085;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 24px;
+            z-index: 1001; /* Ensure it's above the menu */
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin: 40px 0;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Adjust header size for smaller screens */
+            }
+
+            h2 {
+                font-size: 1.5em; /* Adjust header size for smaller screens */
+            }
+
+            p {
+                font-size: 1em; /* Slightly reduce font size */
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-	<h2><u>The Basics:</u></h2>
+    <!-- Top Navigation Bar -->
+    <div class="top-bar">
+        <span class="top-bar-title">>_</span>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="pythonpg.html">Python</a>
+        <a href="tkinterpg.html">Tkinter</a>
+        <a href="pagpg.html">Pyautogui</a>
+        <a href="games.html">Games</a>
+        <a href="aboutpg.html">About</a>
+        <a href="sourcecd.html">Source Code</a>
+    </div>
+
+    <div class="container">
+    	<h1>Python Basic Tutorial</h1>
+
+    	<div class="container">
+    		<h2>Introduction to Python</h2>
+    		Python is a versatile and powerful programming language known for its readability and simplicity. It's used in various fields, including web development, data analysis, artificial intelligence, and more.
+    	</div>
+
+    	<div class="container">
+    		<h2>Setting up python</h2>
+    		Before you start coding, ensure you have Python installed. You can download it from the official Python website. After installation, you can run Python scripts using the command line or an Integrated Development Environment (IDE) like PyCharm, VSCode, or Jupyter Notebook.
+    	</div>
+
+		<div class="container">
+    		<h2>Hello World!</h2>
+    		Let’s start with a classic example, printing "Hello, World!" to the console.
+    		<code>print("Hello, World!")</code>
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+
+    	</div>
+
+		<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    </div>
 
 
-	<h3>Functions-</h3>
-
-
-	<u>Printing-</u>
-
-	<p>
-		Printing is probably the most used thing in python, You can use it to talk to the user, You can use it to debug,<br>
-		You can use it to show what variables store at that point in the code and loads more, Its such a simple<br>
-		function to use, All you need is  > <b>print( )</b> <
-	</p>
-
-	Heres an example:
-
-	<br>
-
-	<img src="images/printexample1.png">
-
-	<br>
-	<br>
-	<br>
-
-	<u>Math/Equations-</u>
-
-	<p>
-		Knowing how to do math equations in python is very helpful for making useful programs, You can use it to add, divide,
-		multiply and subtract variables, it's a very simple function. But, theres something you need to know,
-		if you're new to computers you may think you multiply and divide by using 'x' and '÷', which is true in the real world,
-		but not in python. Instead you need to use '*' and '/', these are the actual operators for multiplication and division.
-	</p>
-
-	Heres an example:
-
-	<br>
-
-	<img src="images/mathexample1.png">
-
-
-	<hr>
-
-
-<!-- this is where general python ends -->
-
+    <!-- JavaScript for the menu toggle -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 
 </body>
 </html>
