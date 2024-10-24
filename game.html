@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            margin: 10px;
+        }
+        #upgrades {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clicker Game</h1>
+    <h2 id="score">Points: 0</h2>
+    <button id="clickButton">Click Me!</button>
+    
+    <div id="upgrades">
+        <h3>Upgrades</h3>
+        <button id="upgradeButton">Buy Upgrade (Cost: 10 points)</button>
+        <p id="upgradeStatus">Upgrades bought: 0</p>
+    </div>
+
+    <script>
+        let points = 0;
+        let pointsPerClick = 1;
+        let upgradesBought = 0;
+        const upgradeCost = 10;
+
+        const scoreElement = document.getElementById('score');
+        const clickButton = document.getElementById('clickButton');
+        const upgradeButton = document.getElementById('upgradeButton');
+        const upgradeStatus = document.getElementById('upgradeStatus');
+
+        clickButton.addEventListener('click', () => {
+            points += pointsPerClick;
+            scoreElement.innerText = `Points: ${points}`;
+        });
+
+        upgradeButton.addEventListener('click', () => {
+            if (points >= upgradeCost) {
+                points -= upgradeCost;
+                pointsPerClick++;
+                upgradesBought++;
+                scoreElement.innerText = `Points: ${points}`;
+                upgradeStatus.innerText = `Upgrades bought: ${upgradesBought}`;
+            } else {
+                alert("Not enough points for an upgrade!");
+            }
+        });
+    </script>
+</body>
+</html>
