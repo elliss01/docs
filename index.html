@@ -1,89 +1,142 @@
-<!Doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-	<link rel="stylesheet" href="styling/main.css">
-	<script src="javascript/main.js"></script>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styling/main.css">
+    <script src="javascript/main.js"></script>
 
+    <!-- Title -->
+    <title>Ellis's Python Docs</title>
 
-	<div class=pages>
-		<a href="index.html", class='pages'>home</a>
-		||
-		<a href="pythonpg.html", class='pages'>python</a>
-		|
-		<a href="tkinterpg.html", class='pages'>tkinter</a>
-		|
-		<a href="pagpg.html", class='pages'>pyautogui</a>
-		|
-		<a href="aboutpg.html", class='pages'>about</a>
-		|
-		<a href="sourcecd.html", class='pages'>source code</a>
-	</div>
-	
+    <!-- Basic styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
+        h1, h2, h3 {
+            text-align: center;
+        }
 
-	<hr>
+        h1 {
+            font-size: 2.5em;
+            color: #2C3E50;
+        }
 
-	<title>Docs</title>
+        h2 {
+            font-size: 2em;
+            color: #16A085;
+        }
 
-	<h1><u>Ellis's Python Documentation</u></h1>
-	<h1>Includes Python, HTML, Tkinter, TTK, Pyautogui</h1>
+        h3 {
+            font-size: 1.5em;
+            color: #2980B9;
+        }
 
-	<hr>
+        .important {
+            color: #E74C3C;
+            font-weight: bold;
+        }
 
+        .container {
+            width: 85%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .pages {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #2C3E50;
+        }
+
+        .pages a {
+            text-decoration: none;
+            padding: 10px 15px;
+            color: white;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .pages a:hover {
+            background-color: #16A085;
+            border-radius: 5px;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 100%;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin: 40px 0;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
+
 <body>
 
-	<h1><u>Python</u></h1>
+    <!-- Navigation bar -->
+    <div class="pages">
+        <a href="index.html">Home</a>
+        <a href="pythonpg.html">Python</a>
+        <a href="tkinterpg.html">Tkinter</a>
+        <a href="pagpg.html">PyAutoGUI</a>
+        <a href="aboutpg.html">About</a>
+        <a href="sourcecd.html">Source Code</a>
+    </div>
 
-	<h2><u>General-</u></h2>
+    <div class="container">
+        <h1>Ellis's Python Documentation</h1>
+        <h2>Includes Python, HTML, Tkinter, TTK, PyAutoGUI</h2>
 
+        <hr>
 
-	<h3><u><b>Functions</b></u></h3>
+        <h1>Python</h1>
+        <h2>General Topics</h2>
 
+        <h3>Functions</h3>
+        <p class='important'><b>Printing:</b> Printing is probably the most used feature in Python. You can use it to communicate with the user, debug your code, and see the values of variables at any point. It’s simple to use. Just write: <code>print()</code></p>
+        <p>Here's an example:</p>
+        <img src="images/printexample1.png" alt="Print example">
 
-	<u><b>Printing-</b></u>
+        <br><br>
 
-	<p class='important'>
-		Printing is probably the most used thing in python, You can use it to talk to the user, You can use it to debug,<br>
-		You can use it to show what variables store at that point in the code and loads more, Its such a simple<br>
-		function to use, All you need is  > <b>print( )</b> <
-	</p>
+        <h3>Math & Equations</h3>
+        <p>
+            Knowing how to do math in Python is helpful for creating functional programs. You can add, divide, multiply, and subtract with ease. However, instead of using the 'x' or '÷' symbols as in the real world, in Python we use <code>*</code> for multiplication and <code>/</code> for division.
+        </p>
+        <p>Here's an example:</p>
+        <img src="images/mathexample1.png" alt="Math example">
 
-	Heres an example:
-
-	<br>
-
-	<img src="images/printexample1.png">
-
-	<br>
-	<br>
-	<br>
-
-	<u><b>Math/Equations-</b></u>
-
-	<p>
-		Knowing how to do math equations in python is very helpful for making useful programs, You can use it to add, divide,<br>
-		multiply and subtract variables, it's a very simple function. But, theres something you need to know,<br>
-		if you're new to computers you may think you multiply and divide by using 'x' and '÷', which is true in the real world,<br>
-		but not in python. Instead you need to use '*' and '/', these are the actual operators for multiplication and division.
-	</p>
-
-	Heres an example:
-
-	<br>
-
-	<img src="images/mathexample1.png">
-
-
-	<hr>
-
-	
-
-
+        <hr>
+    </div>
 
 </body>
 </html>
