@@ -1,0 +1,14 @@
+body {
+	background: #141414;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a.pages {
+	background-color: red;
+}
+
+p.important{
+	font-weight: bold;
+	font-size: x-large;
+}
