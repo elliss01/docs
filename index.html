@@ -61,12 +61,20 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="/login" method="POST">
+        <form id="loginForm">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
             <a href="#" class="forgot-password">Forgot Password?</a>
         </form>
     </div>
+
+    <script>
+        // Prevent form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log("Button clicked, but nothing happens!");
+        });
+    </script>
 </body>
 </html>
