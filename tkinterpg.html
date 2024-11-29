@@ -174,8 +174,7 @@
         <div class="container">
             <h2>3. Creating Your First Tkinter Window</h2>
             <p>To create a basic Tkinter application, you need to import the <code>tkinter</code> module and create an instance of the <code>Tk</code> class.</p>
-            <pre><code>
-import tkinter as tk
+            <pre><code>import tkinter as tk
 
 # Create the main window
 root = tk.Tk()
@@ -183,15 +182,13 @@ root.title("My First Tkinter App")
 root.geometry("300x200")  # Width x Height
 
 # Start the main loop
-root.mainloop()
-            </code></pre>
+root.mainloop()</code></pre>
         </div>
 
         <div class="container">
             <h2>4. Adding Widgets</h2>
             <p>Widgets are the elements you add to your application, like buttons, labels, text boxes, etc. Here’s how to add a label and a button to your window.</p>
-            <pre><code>
-import tkinter as tk
+            <pre><code>import tkinter as tk
 
 def on_button_click():
     label.config(text="Button Clicked!")
@@ -210,16 +207,14 @@ button = tk.Button(root, text="Click Me!", command=on_button_click)
 button.pack(pady=5)
 
 # Start the main loop
-root.mainloop()
-            </code></pre>
+root.mainloop()</code></pre>
         </div>
 
         <div class="container">
             <h2>5. Layout Management</h2>
             <p>Tkinter provides three main methods to manage the layout of widgets: <code>pack</code>, <code>grid</code>, and <code>place</code>.</p>
             <p>Example using <code>grid</code>:</p>
-            <pre><code>
-import tkinter as tk
+            <pre><code>import tkinter as tk
 
 # Create the main window
 root = tk.Tk()
@@ -235,15 +230,13 @@ age_entry = tk.Entry(root)
 age_entry.grid(row=1, column=1)
 
 # Start the main loop
-root.mainloop()
-            </code></pre>
+root.mainloop()</code></pre>
         </div>
 
         <div class="container">
             <h2>6. Handling Events</h2>
             <p>You can handle events such as button clicks or key presses using event bindings.</p>
-            <pre><code>
-import tkinter as tk
+            <pre><code>import tkinter as tk
 
 def on_key_press(event):
     print(f"You pressed: {event.char}")
@@ -256,8 +249,7 @@ root.title("Event Handling Example")
 root.bind("<Key>", on_key_press)
 
 # Start the main loop
-root.mainloop()
-            </code></pre>
+root.mainloop()</code></pre>
         </div>
 
         <div class="container">

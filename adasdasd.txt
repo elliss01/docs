@@ -4,51 +4,81 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styling/main.css">
     <script src="javascript/main.js"></script>
 
-    <title>Tkinter Docs</title>
+    <!-- Title -->
+    <title>Python Docs</title>
 
+    <!-- Basic styles -->
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8; /* Light background for better contrast */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
-        .top-bar {
-            background-color: #2C3E50; /* Dark top bar */
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        h1, h2, h3 {
+            text-align: center;
         }
 
-        .top-bar-title {
-            color: white;
+        h1 {
+            font-size: 2.5em;
+            color: #2C3E50;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #16A085;
+        }
+
+        h3 {
             font-size: 1.5em;
-            margin-right: auto; /* Push the menu button to the right */
-            padding: 0 10px;
+            color: #2980B9;
         }
 
-        .hamburger {
-            cursor: pointer;
+        .important {
+            color: #E74C3C;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px; /* Set a max width for better readability */
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Top bar styles */
+        .top-bar {
+            background-color: #2C3E50;
             padding: 10px;
-            background: none;
-            color: white;
-            border: none;
-            font-size: 24px;
+            display: flex;
+            justify-content: flex-end; /* Aligns the hamburger menu to the right */
+            position: relative;
         }
 
+                /* Top bar title styles */
+        .top-bar-title {
+            color: white; /* Text color */
+            font-size: 1.5em; /* Adjust font size as needed */
+            margin-right: auto; /* Push the menu button to the right */
+            padding: 0 10px; /* Add some padding for spacing */
+        }
+
+        /* Hamburger menu styles */
         .menu {
             display: none; /* Hidden by default */
             flex-direction: column;
             background-color: #1a2530;
             position: absolute;
-            top: 60px; /* Position below the header */
+            top: 50px; /* Position below the header */
             right: 0; /* Aligns to the right */
             width: 200px; /* Width of the menu */
             border-radius: 5px;
@@ -68,63 +98,39 @@
             background-color: #16A085;
         }
 
-        .container {
-            max-width: 800px; /* Set a max width for better readability */
-            margin: 30px auto; /* Center the container */
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 24px;
+            z-index: 1001; /* Ensure it's above the menu */
         }
 
-        h1 {
-            color: #2980B9; /* Header color */
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 20px; /* Space below the header */
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
         }
 
-        h2 {
-            color: #16A085; /* Subheader color */
-            font-size: 2em;
-            margin-top: 30px; /* Space above each subheader */
-        }
-
-        h3 {
-            font-size: 1.5em;
-            color: #333;
+        hr {
+            border: 1px solid #ddd;
+            margin: 40px 0;
         }
 
         p {
+            font-size: 1.1em;
             line-height: 1.6;
-            margin-bottom: 15px; /* Space below paragraphs */
         }
 
         code {
             background-color: #eee;
             padding: 2px 5px;
             border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
-        }
-
-        pre {
-            background-color: #f8f9fa; /* Light background for code blocks */
-            border-left: 4px solid #2980B9; /* Blue left border */
-            padding: 10px;
-            overflow-x: auto; /* Add horizontal scroll for long code */
-        }
-
-        ul {
-            margin-left: 20px; /* Indent unordered lists */
-        }
-
-        a {
-            color: #2980B9; /* Link color */
-            text-decoration: none; /* Remove underline */
-        }
-
-        a:hover {
-            text-decoration: underline; /* Underline on hover */
         }
 
         /* Responsive adjustments */
@@ -136,47 +142,91 @@
             h2 {
                 font-size: 1.5em; /* Adjust header size for smaller screens */
             }
+
+            p {
+                font-size: 1em; /* Slightly reduce font size */
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- Top Navigation Bar -->
     <div class="top-bar">
         <span class="top-bar-title">>_</span>
         <button class="hamburger" onclick="toggleMenu()">☰</button>
     </div>
 
+    <!-- Dropdown Menu -->
     <div class="menu" id="menu">
         <a href="index.html">Home</a>
         <a href="pythonpg.html">Python</a>
         <a href="tkinterpg.html">Tkinter</a>
-        <a href="pagpg.html">PyAutoGUI</a>
+        <a href="pagpg.html">Pyautogui</a>
+        <a href="games.html">Games</a>
         <a href="aboutpg.html">About</a>
         <a href="sourcecd.html">Source Code</a>
-        <a href="games.html">Games</a>
     </div>
 
     <div class="container">
-        <h1>Python Basic Tutorial</h1>
+    	<h1>Python Basic Tutorial</h1>
 
     	<div class="container">
     		<h2>Introduction to Python</h2>
     		Python is a versatile and powerful programming language known for its readability and simplicity. It's used in various fields, including web development, data analysis, artificial intelligence, and more.
     	</div>
 
-        <div class="container">
+    	<div class="container">
     		<h2>Setting up python</h2>
     		Before you start coding, ensure you have Python installed. You can download it from the official Python website. After installation, you can run Python scripts using the command line or an Integrated Development Environment (IDE) like PyCharm, VSCode, or Jupyter Notebook.
     	</div>
 
-        <div class="container">
+		<div class="container">
     		<h2>Hello World!</h2>
     		Let’s start with a classic example, printing "Hello, World!" to the console.
     		<code>print("Hello, World!")</code>
     	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+
+    	</div>
+
+		<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
+    	<div class="container">
+    		<h2></h2>
+    		
+    	</div>
+
     </div>
 
+
+    <!-- JavaScript for the menu toggle -->
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
