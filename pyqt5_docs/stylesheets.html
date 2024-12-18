@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+    <link rel="stylesheet" href="styling/main.css">
+    <script src="javascript/main.js"></script>
+
+    <title>Base</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8; /* Light background for better contrast */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-bar {
+            background-color: #2C3E50; /* Dark top bar */
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar-title {
+            color: white;
+            font-size: 1.5em;
+            margin-right: auto; /* Push the menu button to the right */
+            padding: 0 10px;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 24px;
+        }
+
+        .menu {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            background-color: #1a2530;
+            position: absolute;
+            top: 60px; /* Position below the header */
+            right: 0; /* Aligns to the right */
+            width: 200px; /* Width of the menu */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .menu a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            text-align: left; /* Align text to the left */
+        }
+
+        .menu a:hover {
+            background-color: #16A085;
+        }
+
+        .container {
+            max-width: 800px; /* Set a max width for better readability */
+            margin: 30px auto; /* Center the container */
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2980B9; /* Header color */
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px; /* Space below the header */
+        }
+
+        h2 {
+            color: #16A085; /* Subheader color */
+            font-size: 2em;
+            text-align: center;
+            margin-top: 30px; /* Space above each subheader */
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .important {
+            color: #E74C3C;
+            font-weight: bold;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px; /* Space below paragraphs */
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+        }
+
+        pre {
+            background-color: #f8f9fa; /* Light background for code blocks */
+            border-left: 4px solid #2980B9; /* Blue left border */
+            padding: 10px;
+            overflow-x: auto; /* Add horizontal scroll for long code */
+        }
+
+        ul {
+            margin-left: 20px; /* Indent unordered lists */
+        }
+
+        a {
+            color: #2980B9; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Adjust header size for smaller screens */
+            }
+
+            h2 {
+                font-size: 1.5em; /* Adjust header size for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <span class="top-bar-title">>_</span>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="pythonpg.html">Python</a>
+        <a href="tkinterpg.html">Tkinter</a>
+        <a href="pagpg.html">PyAutoGUI</a>
+        <a href="aboutpg.html">About</a>
+        <a href="sourcecd.html">Source Code</a>
+        <a href="games.html">Games</a>
+    </div>
+
+    <div class="container">
+        <h1>PyQt5</h1>
+        <div class="container">
+            <h2>Stylesheets</h2>
+        </div>
+        <div class="container">
+            <h3>Buttons</h3>
+            <div class="container">
+                <!-- Add basic definitions and stuff -->
+    
+            </div>
+            <div class="container">
+                Code examples:
+                <code>QPushButton {
+                    color: white;
+                    background-color: #3498db;
+                    border: 2px solid #2980b9;
+                    border-radius: 10px;
+                    padding: 10px;
+                }
+                
+                QPushButton:hover {
+                    background-color: #2980b9;
+                }
+                
+                QPushButton:pressed {
+                    background-color: #1abc9c;
+                }
+                
+                QPushButton:disabled {
+                    background-color: #bdc3c7;
+                    color: #7f8c8d;
+                }</code>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+
+</body>
+</html>
